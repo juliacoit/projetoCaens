@@ -24,7 +24,7 @@
             <button id="achados">ACHADOS</button>
             <button id="perdidos">PERDIDOS</button>
             <button id="perdidos">REQUEST</button>
-            <form action="../php/logout.php" method="post">
+            <form id="logout" action="../php/logout.php" method="post">
                 <a href="#"> <input type="submit" value="LOGOUT" id="logout"> </a>
             </form>
             <div class="user-info">
@@ -61,44 +61,30 @@
 
         <!-- Produtos cadastrados -->
         <section class="produtos-cadastrados">
-            <h2 id=titulo_produtos_cadastrados>PRODUTOS</h2>
-            <div>
-            <table class="container_produtos_home">                                                                                 
-                <thead>
-                <tr class="linha_produtos_home">
-                <th class="item_titulo_home">Código</th>
-                <th class="item_titulo_home">Descrição</th>
-                <th class="item_titulo_home">Data e Hora</th>
-                <th class="item_titulo_home">Tipo</th>
-                
-                </tr>   
-                </thead>
+    <h2 id="titulo_produtos_cadastrados">PRODUTOS</h2>
+    <div class="feed"> <!-- Container do feed -->
 
+        <?php
+        $tipo_consulta = $tipo_consulta ?? 3;
+        $result = get_produtos($tipo_consulta);   
 
-                <?php
-                
+        foreach ($result as $linha) {
+            $tipoTexto = match ($linha["tipo"]) {
+                1 => 'Achado',
+                2 => 'Perdido',
+                default => 'Desconhecido',
+            };
 
-                $tipo_consulta = $tipo_consulta ?? 3;
-                $result = get_produtos($tipo_consulta);   
+            echo '<div class="post">';
+            echo '<p><strong>Descrição:</strong> ' . htmlspecialchars($linha["descricao"]) . '</p>';
+            echo '<p><strong>Data e Hora:</strong> ' . htmlspecialchars($linha["dataHora"]) . '</p>';
+            echo '<p class="tipo-item"><strong>Tipo:</strong> ' . $tipoTexto . '</p>';
+            echo '</div>';
+        }   
+        ?>
+    </div>
+</section>
 
-                foreach ($result as $linha) {
-                $tipoTexto = match ($linha["tipo"]) {
-                    1 => 'Achado',
-                    2 => 'Perdido',
-                    default => 'Desconhecido',
-                };
-                
-                echo '<tr class="linha_produtos_home">';
-                echo '<td class="produto_home">' . htmlspecialchars($linha["id_produto"]) . '</td>';
-                echo '<td class="produto_home">' . htmlspecialchars($linha["descricao"]) . '</td>';
-                echo '<td class="produto_home">' . htmlspecialchars($linha["dataHora"]) . '</td>';
-                echo '<td class="produto_home">' . $tipoTexto . '</td>';
-                echo '</tr>';
-                }   
-                ?>
-                </div>
-            </table>
-        </section>
     </main>
     
     <script src= "../javascript/home.js"></script>
