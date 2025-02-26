@@ -31,7 +31,7 @@ function cadastrar_usuario($nome, $email, $senha)
                 //Server settings
                 //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
                 // Looking to send emails in production? Check out our Email API/SMTP product!
-                $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                $mail->CharSet = 'UTF-8';
                 $mail = new PHPMailer();
                 $mail->isSMTP();
                 $mail->Host = 'sandbox.smtp.mailtrap.io';
