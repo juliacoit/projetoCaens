@@ -10,7 +10,7 @@ body, html {
   max-width: 1200px; /* Mantém um limite para telas grandes */
   margin: 20px auto;
   padding: 20px;
-  background: #A99A79;
+  background: #d8cfbc;
   border-radius: 15px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -40,7 +40,7 @@ body, html {
 .post-section input[type="text"], 
 .post-section input[type="date"],
 .post-section select {
-    background: #F4EAD1;
+    background: #fdfbf6;
     border: 1px solid #C4B69B;
 }
 
@@ -428,4 +428,26 @@ echo '<th class="item_titulo_home">Código</th>';
 
 .btnExcluir:hover {
   background-color: #c82333;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre ícone e nome */
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  background: #0a3d11; /* Fundo leve para destacar */
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-info i {
+  font-size: 22px; /* Ícone um pouco maior */
+  color: #ffffff; /* Azul moderno */
+}
+
+.user-info .span {
+  color: #333 !important;
 }

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../css/defaultStyles.css">
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Projeto CAENS - FEED</title>
 	
     <script type="text/javascript">
@@ -30,7 +31,7 @@
             <button id="todos">TODOS</button>
             <button id="achados">ACHADOS</button>
             <button id="perdidos">PERDIDOS</button>
-            <button id="request">REQUEST</button>
+            <button id="request">PENDÊNCIAS</button>
             <form action="../php/logout.php" method="post">
                 <input type="submit" value="LOGOUT" id="logout">
             </form>
@@ -40,7 +41,7 @@
                     <?php
                         session_start();
                         include '../php/funcoes_produtos.php';
-                        echo 'Nome do usuário: ' . htmlspecialchars($_SESSION['nome']);
+                        echo htmlspecialchars($_SESSION['nome']);
                     ?>
                 </span>
             </div>
