@@ -334,16 +334,16 @@ echo '<th class="item_titulo_home">Código</th>';
   display: flex;
   flex-wrap: wrap;
   justify-content: center; /* Centraliza os posts */
-  gap: 20px;
+  gap: 30px; /* Diminui o gap entre os posts para mais posts na tela */
   width: 100%;
-  padding: 0 10px;
+  padding: 0 50px; /* Aumenta o padding lateral para dar mais espaço */
 }
 
 .post, .post-admin {
-  flex: 1 1 280px;
-  max-width: 300px;
+  flex: 1 1 600px; /* Aumenta a largura base das postagens para */
+  max-width: 500px; /* Aumenta a largura máxima das postagens */
   background: #fff;
-  padding: 15px;
+  padding: 20px; /* Aumenta o padding interno para mais espaço */
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   border-left: 5px solid #6d4c41;
@@ -363,10 +363,10 @@ echo '<th class="item_titulo_home">Código</th>';
 
 .produto-imagem {
   width: 100%;
-  max-width: 120px;
+  max-width: 200px;
   height: auto;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #ddd;
 }
 
