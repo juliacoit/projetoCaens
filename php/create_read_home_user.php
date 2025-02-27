@@ -31,9 +31,15 @@
             <button id="todos">TODOS</button>
             <button id="achados">ACHADOS</button>
             <button id="perdidos">PERDIDOS</button>
+<<<<<<< HEAD
             <button id="request">PENDÊNCIAS</button>
             <form action="../php/logout.php" method="post">.
                 <input type="submit" value="LOGOUT" id="logout">
+=======
+            <button id="perdidos">REQUEST</button>
+            <form id="logout" action="../php/logout.php" method="post">
+                <a href="#"> <input type="submit" value="LOGOUT" id="logout"> </a>
+>>>>>>> 35608e9b2bb82fd70386a3c0d5f7c3b7f67ede41
             </form>
             <div class="user-info">
                 <i class="fas fa-user"></i>
@@ -68,27 +74,25 @@
         </section>
         <section class="produtos-cadastrados">
     <h2 id="titulo_produtos_cadastrados">PRODUTOS</h2>
-    <div class="feed-admin"> <!-- Container do feed -->
+    <div class="feed"> <!-- Container do feed -->
 
         <?php
         $tipo_consulta = $tipo_consulta ?? 3;
-        $result = get_produtos($tipo_consulta);
+        $result = get_produtos($tipo_consulta);   
 
         foreach ($result as $linha) {
-            $tipoTexto = $linha["tipo"] == 1 ? 'Achado' : 'Perdido';
-            $imagem = !empty($linha["imagem"]) ? htmlspecialchars($linha["imagem"]) : "placeholder.jpg";  
-            
-            echo '<div class="post-admin">';
-            echo '  <div class="post-content-admin">';
-            echo '      <img src="' . $imagem . '" alt="Imagem do produto" class="produto-imagem">';
-            echo '      <div class="post-info-admin">';
-            echo '          <p><strong>Descrição:</strong> ' . htmlspecialchars($linha["descricao"]) . '</p>';
-            echo '          <p><strong>Data e Hora:</strong> ' . htmlspecialchars($linha["dataHora"]) . '</p>';
-            echo '          <p class="tipo-item-admin"><strong>Tipo:</strong> ' . $tipoTexto . '</p>';
-            echo '      </div>';
-            echo '  </div>';
+            $tipoTexto = match ($linha["tipo"]) {
+                1 => 'Achado',
+                2 => 'Perdido',
+                default => 'Desconhecido',
+            };
+
+            echo '<div class="post">';
+            echo '<p><strong>Descrição:</strong> ' . htmlspecialchars($linha["descricao"]) . '</p>';
+            echo '<p><strong>Data e Hora:</strong> ' . htmlspecialchars($linha["dataHora"]) . '</p>';
+            echo '<p class="tipo-item"><strong>Tipo:</strong> ' . $tipoTexto . '</p>';
             echo '</div>';
-        }
+        }   
         ?>
     </div>
 </section>

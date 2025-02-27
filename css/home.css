@@ -333,7 +333,7 @@ echo '<th class="item_titulo_home">Código</th>';
 .feed, .feed-admin {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Centraliza os posts */
+  justify-content: center;
   gap: 30px; /* Diminui o gap entre os posts para mais posts na tela */
   width: 100%;
   padding: 0 50px; /* Aumenta o padding lateral para dar mais espaço */
@@ -347,7 +347,7 @@ echo '<th class="item_titulo_home">Código</th>';
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   border-left: 5px solid #6d4c41;
-  text-align: center;
+  text-align: left;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -376,11 +376,15 @@ echo '<th class="item_titulo_home">Código</th>';
   gap: 5px;
 }
 
+.post-info, .post-info-admin p {
+  margin: 4px 0;
+}
+
 .tipo-item, .tipo-item-admin {
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 5px;
-  display: inline-block;
+  display: block; /* Faz com que o texto ocupe toda a largura do contêiner */
 }
 
 @media (max-width: 768px) {
@@ -394,41 +398,49 @@ echo '<th class="item_titulo_home">Código</th>';
   }
 }
 
-/* Cores diferentes para "Achado" e "Perdido" */
-.tipo-item:contains("Achado"), .tipo-item-admin:contains("Achado") {
-  color: #007bff;
-}
-
-.tipo-item:contains("Perdido"), .tipo-item-admin:contains("Perdido") {
-  color: #71000b;
+.admin-actions {
+  display: flex;
+  justify-content: flex-end; /* Alinha os botões à direita */
+  gap: 10px; /* Espaço entre os botões */
+  margin-top: 10px; /* Espaço superior opcional */
 }
 
 /* Botões de ação (exibidos apenas para admin) */
 .btnAceitar, .btnExcluir {
-  padding: 8px 15px;
-  border-radius: 5px;
+  padding: 12px 20px; /* Maior espaçamento */
+  border-radius: 8px; /* Bordas arredondadas, consistente com o restante do layout */
   text-decoration: none;
   font-weight: bold;
+  font-size: 16px; /* Texto maior para mais legibilidade */
   transition: 0.3s ease-in-out;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Leve sombra */
 }
 
+/* Botão Aceitar */
 .btnAceitar {
-  background-color: #28a745;
-  color: white;
+  background-color: #2E5D3D; /* Verde escuro, coerente com os outros botões */
+  color: #fff;
 }
 
 .btnAceitar:hover {
-  background-color: #218838;
+  background-color: #244A31; /* Tom mais escuro no hover */
 }
 
+/* Botão Excluir */
 .btnExcluir {
-  background-color: #dc3545;
+  background-color: #8B3A3A; /* Tom vermelho terroso, mais suave */
   color: white;
 }
 
 .btnExcluir:hover {
-  background-color: #c82333;
+  background-color: #702E2E; /* Tom mais escuro no hover */
 }
+
 
 .user-info {
   display: flex;
