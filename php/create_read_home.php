@@ -30,7 +30,7 @@
             <button id="todos">TODOS</button>
             <button id="achados">ACHADOS</button>
             <button id="perdidos">PERDIDOS</button>
-            <button id="request">REQUEST</button>
+            <button id="request">PENDÊNCIAS</button>
             <form action="../php/logout.php" method="post">
                 <input type="submit" value="LOGOUT" id="logout">
             </form>
